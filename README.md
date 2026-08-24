@@ -1,82 +1,158 @@
-# Research
+# Cybersecurity Research Lab
 
-A structured collection of cybersecurity research, threat intelligence notes, malware analysis, vulnerability research, and defensive security documentation.
+> A structured, evidence-driven portfolio of cybersecurity research, threat intelligence, detection engineering, vulnerability analysis, malware analysis, and SOC investigation methodology.
+
+![Focus](https://img.shields.io/badge/Focus-Cybersecurity-informational)
+![Research](https://img.shields.io/badge/Research-Threat%20%26%20Defense-informational)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
+## About
+
+This repository is a living cybersecurity research portfolio designed around practical blue-team, SOC, threat-intelligence, vulnerability-research, and malware-analysis workflows.
+
+The goal is not to collect disconnected notes. Each research area is organized around a repeatable process:
+
+```text
+Threat / Vulnerability
+        ↓
+Evidence Collection
+        ↓
+Technical Analysis
+        ↓
+Behavior & Attack Chain
+        ↓
+MITRE ATT&CK Mapping
+        ↓
+Detection Opportunities
+        ↓
+Investigation / Response
+        ↓
+Mitigation & Lessons Learned
+```
 
 ## Research Areas
 
-- Malware & ransomware analysis
-- Threat intelligence
-- Vulnerability research
-- Indicators of Compromise (IoCs)
-- MITRE ATT&CK technique mapping
-- Security monitoring & detection
-- Incident response and defensive controls
-- Cybersecurity case studies
+| Area | Focus | Primary Security Skill |
+|---|---|---|
+| [`ransomware-analysis/`](./ransomware-analysis/) | Ransomware families, campaigns, IoCs, ATT&CK, defenses | Threat Intelligence / IR |
+| [`windows-event-log-analysis/`](./windows-event-log-analysis/) | Windows Security, Sysmon, authentication and endpoint telemetry | SOC Analysis |
+| [`active-directory-attack-detection/`](./active-directory-attack-detection/) | AD attack paths and detection | Blue Team / Detection |
+| [`phishing-investigation/`](./phishing-investigation/) | Email, URL, domain, attachment and identity investigation | SOC / Incident Response |
+| [`vulnerability-research/`](./vulnerability-research/) | CVE analysis, root cause, exploitability, detection and mitigation | VAPT / Vulnerability Research |
+| [`splunk-detection-engineering/`](./splunk-detection-engineering/) | SPL detections, tuning, ATT&CK mapping and triage | SIEM / Detection Engineering |
+| [`malware-analysis/`](./malware-analysis/) | Static, dynamic, network analysis and IoC extraction | Malware Analysis / DFIR |
 
-## Repository Structure
+## Research Standards
+
+Every substantial investigation should aim to include:
+
+- Clear research objective
+- Reliable primary or high-quality secondary references
+- Evidence and reproducible observations where possible
+- Attack-chain or root-cause analysis
+- IoCs and behavioral indicators where appropriate
+- MITRE ATT&CK mapping where applicable
+- Detection opportunities
+- False-positive considerations
+- Mitigation and response guidance
+- Confidence level and limitations
+- Clear separation between fact and analyst assessment
+
+## Detection Engineering
+
+The repository prioritizes practical detection content rather than theory alone.
+
+Planned detection formats include:
+
+- **Splunk SPL**
+- **Sigma**
+- **Wazuh rules**
+- **KQL**
+- **YARA**
+- Endpoint and network behavioral analytics
+
+## SOC Investigation Model
 
 ```text
-Research/
-├── README.md
-└── ransomware-evolution.md
+Alert
+ ↓
+Validate
+ ↓
+Identify User / Host / Process
+ ↓
+Build Timeline
+ ↓
+Correlate Telemetry
+ ↓
+Map ATT&CK
+ ↓
+Determine Scope
+ ↓
+Contain
+ ↓
+Eradicate / Recover
+ ↓
+Document & Improve Detection
 ```
 
-## Current Research
+## Quality Over Quantity
 
-### Ransomware Evolution
+A small number of well-researched, evidence-backed investigations is more valuable than a large collection of copied commands or unverified threat claims.
 
-**[`ransomware-evolution.md`](./ransomware-evolution.md)**
+Research should distinguish clearly between:
 
-A historical and defensive analysis of ransomware evolution from the 1989 PC Cyborg Trojan through modern Ransomware-as-a-Service (RaaS) operations.
+- **Confirmed fact**
+- **Observed evidence**
+- **Vendor / government reporting**
+- **Analyst assessment**
+- **Unverified or disputed claims**
 
-The research covers:
+## Repository Roadmap
 
-- Ransomware evolution and major eras
-- PC Cyborg, Reveton, CryptoLocker, CTB-Locker, WannaCry and NotPetya
-- Ryuk, Maze, LockBit, ALPHV/BlackCat and Cl0p
-- Attack methodologies and common intrusion paths
-- Indicators of Compromise (IoCs)
-- Ransomware infrastructure and extortion models
-- Threat-intelligence comparison matrix
-- MITRE ATT&CK technique mapping
-- Ransom-note evolution
-- Dark-web leak-site architecture
-- Defensive controls mapped to attack phases
-- Lessons learned from major real-world incidents
+- [x] Establish research structure
+- [x] Ransomware evolution baseline
+- [x] Research-area READMEs
+- [ ] Add Windows event investigations
+- [ ] Add production-quality Splunk detections
+- [ ] Add AD attack-detection case studies
+- [ ] Add phishing investigation cases
+- [ ] Add CVE research reports
+- [ ] Add malware-analysis reports
+- [ ] Add reusable Sigma/YARA detections
+- [ ] Add sanitized datasets and lab evidence
 
-## Research Approach
+## Responsible Research
 
-Research in this repository is organized around:
+This repository is intended for **authorized cybersecurity research, education, threat intelligence, detection engineering, incident response, and controlled security testing**.
 
-1. **Understanding the threat** — malware families, threat actors, campaigns, and operational models.
-2. **Analyzing the attack chain** — initial access, execution, persistence, credential access, lateral movement, exfiltration, and impact.
-3. **Extracting actionable intelligence** — IoCs, ATT&CK techniques, infrastructure patterns, and behavioral indicators.
-4. **Mapping defenses** — detection opportunities, prevention controls, incident-response considerations, and resilience measures.
-5. **Documenting sources** — relevant security research, vendor reports, government publications, and threat-intelligence resources.
+Only test offensive techniques against systems and environments where you have explicit authorization. Do not publish credentials, access tokens, private data, or operational secrets.
 
-## Disclaimer
+Malware and exploit research should be performed in isolated lab environments with appropriate containment.
 
-This repository is intended for **cybersecurity research, education, threat intelligence, and defensive security purposes**. Information is documented to improve understanding of real-world threats and strengthen detection, prevention, incident response, and security awareness.
+## References
 
-Any techniques, indicators, or tooling discussed should only be tested in systems and environments where you have explicit authorization.
-
-## Sources
-
-Research may reference material from organizations and resources such as:
+Depending on the research topic, sources may include:
 
 - CISA
 - MITRE ATT&CK
-- Europol
+- NIST
 - FBI / U.S. Department of Justice
+- Europol
 - Mandiant / Google Threat Intelligence
 - CrowdStrike
+- Microsoft Security
+- Cisco Talos
 - Recorded Future
 - Trend Micro
 - Group-IB
-- Chainalysis
 - BleepingComputer
-- Other reputable cybersecurity and threat-intelligence publications
+- Vendor security advisories and technical research
 
-## Status
+## Research Status
 
-This repository is continuously evolving. New research, case studies, vulnerability analysis, threat intelligence, and defensive security notes may be added over time.
+**Active and continuously evolving.** New case studies, detections, vulnerability research, threat intelligence, and malware-analysis work will be added as they are validated.
+
+---
+
+**Author:** 1amBa7Man  
+**Repository:** [`1amBa7Man/Research`](https://github.com/1amBa7Man/Research)
